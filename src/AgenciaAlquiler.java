@@ -89,7 +89,7 @@ public class AgenciaAlquiler {
 	 */
 	public String buscarCoches() {
 
-		return null;
+		return "";
 
 	}
 
