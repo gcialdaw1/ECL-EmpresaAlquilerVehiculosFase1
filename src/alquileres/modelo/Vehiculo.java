@@ -1,3 +1,4 @@
+package alquileres.modelo;
 
 /**
  * Representa a un vehículo en alquiler
@@ -15,7 +16,7 @@
  * misma matrícula
  * 
  */
-public class Vehiculo {
+public class Vehiculo implements Comparable<Vehiculo>{
 	private String matricula;
 	private String marca;
 	private String modelo;
@@ -33,6 +34,40 @@ public class Vehiculo {
 
 	}
 
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+	public double getPrecioDia() {
+		return precioDia;
+	}
+
+	public void setPrecioDia(double precioDia) {
+		this.precioDia = precioDia;
+	}
+	public double calcularPrecioAlquiler(int numeroDias) {
+		return precioDia * numeroDias;
+	}
 	/**
 	 * Redefinición de hashCode()
 	 * 
@@ -42,4 +77,35 @@ public class Vehiculo {
 		return matricula.hashCode() * 13;
 	}
 
+	@Override
+	public int compareTo(Vehiculo o) {
+		
+		return this.matricula.compareToIgnoreCase(o.getMatricula());
+	}
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (obj == this) {
+			return true;
+		}
+		if (this.getClass() != obj.getClass()) {
+			return false;
+		}
+		Vehiculo v = (Vehiculo) obj;
+		return this.matricula.equalsIgnoreCase(v.getMatricula());
+		
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.getClass().getName().toUpperCase()).append("\n");
+		sb.append("Matricula: ").append(matricula).append("\t|\t");
+		sb.append("Marca: ").append(marca).append("\t|\t");
+		sb.append("Modelo: ").append(modelo).append("\n");
+		sb.append("Precio día alquiler: ").append(precioDia).append("\t|\t");
+		return sb.toString();
+	}
+	
 }

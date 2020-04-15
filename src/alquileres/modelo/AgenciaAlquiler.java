@@ -1,3 +1,4 @@
+package alquileres.modelo;
 
 import java.util.ArrayList;
 import java.util.List;

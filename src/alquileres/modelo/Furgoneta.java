@@ -1,3 +1,4 @@
+package alquileres.modelo;
 
 /**
  * Una furgoneta es un vehículo que añade la característica del volumen de carga
