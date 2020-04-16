@@ -18,7 +18,7 @@ public class Furgoneta extends Vehiculo{
 private double volumen;
 	
 	public Furgoneta(String matricula, String marca, String modelo,
-	        double precioDia, int volumen) {
+	        double precioDia, double volumen) {
 		
 		super(matricula, marca, modelo, precioDia);
 		this.volumen = volumen;
@@ -28,7 +28,7 @@ private double volumen;
 		return volumen;
 	}
 
-	public void setVolumen(int v) {
+	public void setVolumen(double v) {
 		this.volumen = v;
 	}
 	
@@ -47,6 +47,6 @@ private double volumen;
 	}
 	
 	public String toString() {
-		return super.toString() + "Volumen: " + volumen;
+		return super.toString() + "Volumen: " + volumen + "M³";
 	}
 }

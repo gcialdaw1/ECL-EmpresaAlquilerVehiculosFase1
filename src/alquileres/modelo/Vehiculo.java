@@ -16,7 +16,7 @@ package alquileres.modelo;
  * misma matrícula
  * 
  */
-public class Vehiculo implements Comparable<Vehiculo>{
+public abstract class Vehiculo implements Comparable<Vehiculo>{
 	private String matricula;
 	private String marca;
 	private String modelo;
