@@ -30,8 +30,10 @@ public class AgenciaAlquiler {
 	 * añade un nuevo vehículo solo si no existe
 	 * 
 	 */
-	public void addVehiculo() {
-
+	public void addVehiculo(Vehiculo v) {
+		if(!flota.contains(v)) {
+			flota.add(v);
+		}
 	}
 
 	/**
@@ -46,8 +48,8 @@ public class AgenciaAlquiler {
 	 * Asumimos todos los datos correctos. Puede haber espacios antes y después
 	 * de cada dato
 	 */
-	private Vehiculo obtenerVehiculo() {
-
+	private Vehiculo obtenerVehiculo(String linea) {
+		
 		return null;
 	}
 
