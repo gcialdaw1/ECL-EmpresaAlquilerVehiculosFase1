@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 /**
@@ -160,15 +161,16 @@ public class AgenciaAlquiler implements Comparator<Furgoneta>{
 				furgonetas.add((Furgoneta) v);
 			}
 		}
-		Collections.sort(furgonetas, new Comparator<Furgoneta>()
+		
+		furgonetas.sort(new Comparator<Furgoneta>()
 		{
 		public int compare(Furgoneta o1, Furgoneta o2)
 		{
-			return 1;
+			return Double.compare(o1.getVolumen(), o2.getVolumen());
 		}
 		});
 
-		return null;
+		return furgonetas;
 
 	}
 
@@ -178,8 +180,21 @@ public class AgenciaAlquiler implements Comparator<Furgoneta>{
 	 * de los modelos en cada marca como valor asociado
 	 */
 	public Map<String, Set<String>> marcasConModelos() {
-
-		return null;
+		Map<String, Set<String>> marcas = new TreeMap<>();
+		for(Vehiculo v: flota) {
+			String marca = v.getMarca();
+			String modelo = v.getModelo();
+			if(marcas.containsKey(marca)) {
+				marcas.get(marca).add(modelo);
+			}
+			else {
+				Set<String> set = new TreeSet<>();
+				set.add(modelo);
+				
+				marcas.put(marca, set);
+			}
+		}
+		return marcas;
 	}
 
 	@Override
@@ -187,6 +202,5 @@ public class AgenciaAlquiler implements Comparator<Furgoneta>{
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-
+	
 }

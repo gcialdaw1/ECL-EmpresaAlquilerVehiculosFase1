@@ -96,7 +96,7 @@ public class TestAgencia {
 	 * inicio de la aplicación
 	 */
 	public static void main(String[] args) {
-		TestAgencia test = new TestAgencia();
+		TestAgencia test = new TestAgencia("Rent-A-Car");
 
 		test.testBuscarCoches();
 		test.testCochesOrdenadosMatricula();
@@ -104,5 +104,6 @@ public class TestAgencia {
 
 		test.testMarcasConModelos();
 
+		
 	}
 }
